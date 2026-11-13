@@ -1,0 +1,9 @@
+node_modules/
+.wrangler/
+.dev.vars*
+.env*
+docs/private/
+test-results/
+dist/
+.wrangler.production.jsonc
+*.log

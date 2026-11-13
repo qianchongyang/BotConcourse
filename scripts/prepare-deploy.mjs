@@ -1,0 +1,10 @@
+import fs from 'node:fs';
+const target=JSON.parse(fs.readFileSync('docs/private/cloudflare-target.json','utf8'));
+const config=JSON.parse(fs.readFileSync('wrangler.jsonc','utf8'));
+config.account_id=target.account_id;config.name='botconcourse-mcp';config.workers_dev=false;
+const domain=process.argv[2]||target.domain;if(!domain||!/^([a-z0-9-]+\.)+[a-z]{2,}$/i.test(domain))throw new Error('Pass your custom hostname or set domain in the private target file.');
+const access=JSON.parse(fs.readFileSync('docs/private/admin-access.json','utf8'));
+config.routes=[{pattern:domain,custom_domain:true}];
+config.vars={ADMIN_USERNAME:access.username,APP_ORIGIN:'https://'+domain,ENVIRONMENT:'production'};
+fs.writeFileSync('.wrangler.production.jsonc',JSON.stringify(config,null,2)+'\n',{mode:0o600});
+console.log('Prepared isolated Worker, SQLite storage, and '+domain+' custom domain.');
