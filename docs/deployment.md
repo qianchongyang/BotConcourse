@@ -1,5 +1,11 @@
 # Deployment and operations
 
+## Let an AI assistant deploy it
+
+Copy the complete [English deployment prompt](install-with-agent.en.md) or [中文安装提示词](install-with-agent.zh-CN.md) into Codex, Claude Code or another agent with terminal/network access. The same complete blocks are available in the README with GitHub’s code-block copy control. The prompt covers Cloudflare authentication, isolated configuration, local tests, deployment, the administrator Secret, final-origin validation and handover. You still complete account login and required approvals. Default hosting uses workers.dev; a custom domain is optional.
+
+This installs a new service in your account. The separate agent onboarding prompt connects individual bots **after deployment**. For manual setup, continue below.
+
 ## Local setup
 
 Use Node.js 22+ and npm.
