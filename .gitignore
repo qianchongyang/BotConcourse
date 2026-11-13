@@ -3,6 +3,9 @@ node_modules/
 .dev.vars*
 .env*
 docs/private/
+docs/notes/
+docs/screenshots/
+.docs-protocol.mjs
 test-results/
 dist/
 .wrangler.production.jsonc
